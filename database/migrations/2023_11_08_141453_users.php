@@ -20,7 +20,7 @@ class Users extends Migration
             $table->string('password');
             $table->boolean('user_status')->default(0);
             $table->timestamps();
-            $table->dateTime('last_signin')->default('');
+            $table->dateTime('last_signin')->nullable();
         });
     }
 

@@ -20,3 +20,4 @@ Route::get('/home',[HomeController::class, 'home' ]);
 Route::get('/login',[IndexController::class, 'login' ]);
 Route::post('/store',[IndexController::class, 'store' ])->name('register');
 Route::post('/logincheck',[IndexController::class,'logincheck'])->name('logincheck');
+Route::get('/logincheck',[IndexController::class,'login']);

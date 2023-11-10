@@ -7,25 +7,37 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index(){
+        $formSubmitted=false;
         $data=[
-            'loginpage'=>0
+            'name' => '',
+            'email' => '',
+            'password' => '',
+            'loginpage'=>0,
+            'formSubmitted'=>$formSubmitted
+            
         ];
         return view('pages.index',$data);
     }
 
-    public function store(Request $request){
-
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-        ]);
-
-        Index::createRecord($request->all());
-
-        return redirect()->route('index')->with('success','Student Created Successfully Yaar');
-
+    public function store(Request $request)
+    {
+        $formSubmitted=false;
+        if ( empty($request['name']) || empty($request['email']) || empty($request['password'])) {
+            $formSubmitted=true;
+            $data = [
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => $request['password'],
+                'loginpage' => 0,
+                'formSubmitted'=>$formSubmitted
+            ];
+            return view('pages.index', $data);
+        } else {
+            Index::createRecord($request->all());
+        }
     }
+
+
     public function login(){
 
         $data=[
@@ -36,7 +48,9 @@ class IndexController extends Controller
     }
 
     public function logincheck(Request $request){
-        Index::loginCheck($request->all());
-        return view('pages.index',$data);
+        $indexModel=new Index();
+        $data=['email'=>$request['email'],'password'=>$request['password']];
+        $response=$indexModel->loginCheckUser($data);
+        return view('pages.index',compact('response'));
     }
 }
