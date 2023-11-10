@@ -17,4 +17,6 @@ use App\Http\Controllers\IndexController;
 Route::get('/',[IndexController::class, 'index' ]);
 Route::get('/index',[IndexController::class, 'index' ])->name('index');
 Route::get('/home',[HomeController::class, 'home' ]);
-Route::post('/store',[IndexController::class, 'store' ])->name('store');
+Route::get('/login',[IndexController::class, 'login' ]);
+Route::post('/store',[IndexController::class, 'store' ])->name('register');
+Route::post('/logincheck',[IndexController::class,'logincheck'])->name('logincheck');

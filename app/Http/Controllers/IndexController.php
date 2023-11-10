@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index(){
-        return view('pages.index');
+        $data=[
+            'loginpage'=>0
+        ];
+        return view('pages.index',$data);
     }
 
     public function store(Request $request){
@@ -21,6 +24,14 @@ class IndexController extends Controller
         Index::createRecord($request->all());
 
         return redirect()->route('index')->with('success','Student Created Successfully Yaar');
+
+    }
+    public function login(){
+
+        $data=[
+            'loginpage'=>1
+        ];
+        return view('pages.index',$data);
 
     }
 }
