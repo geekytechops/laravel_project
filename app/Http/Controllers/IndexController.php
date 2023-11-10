@@ -34,4 +34,9 @@ class IndexController extends Controller
         return view('pages.index',$data);
 
     }
+
+    public function logincheck(Request $request){
+        Index::loginCheck($request->all());
+        return view('pages.index',$data);
+    }
 }

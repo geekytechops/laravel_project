@@ -20,4 +20,7 @@ class Index extends Model
             'password' => $data['password'],
         ]);
     }
+    public function loginCheck(array $data){
+        
+    }
 }

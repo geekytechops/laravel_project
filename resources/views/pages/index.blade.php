@@ -9,7 +9,7 @@
       @endif
     </div>     
       <div class="col-md-3">
-         @if($loginpage==0)
+         @if( isset($loginpage) && $loginpage==0)
          <form action="{{route('register')}}" method="post">
          @csrf
             <div class="mb-2">
@@ -29,6 +29,9 @@
             <p>Already have a account? </p><b class="ms-2"><a href="/login">Login</a></b>
          </div>
          @else
+         @if(isset($value))
+         {{$value}}
+         @endif
          <form action="{{route('logincheck')}}" method="post">
          @csrf
             <div class="mb-2">
