@@ -10,6 +10,8 @@
 <script src="{{asset('libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 
+<script src="{{asset('libs/sweetalert2/sweetalert2.min.js')}}"></script>
+
 <!-- Required datatable js -->
 <script src="{{asset('libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>

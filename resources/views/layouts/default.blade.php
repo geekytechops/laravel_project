@@ -30,6 +30,8 @@
 
    </footer>
 
+   @yield('scripts')
+
 </div>
 
 </body>

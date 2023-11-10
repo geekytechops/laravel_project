@@ -10,6 +10,14 @@
     </div>     
       <div class="col-md-3">
          @if( isset($loginpage) && $loginpage==0)         
+
+         @if(isset($success) && $success==1)
+         @section('scripts')
+         <script>
+            redirectLogin();
+         </script>
+         @endif
+
          <form action="{{route('register')}}" method="post">
          @csrf
             <div class="mb-2">

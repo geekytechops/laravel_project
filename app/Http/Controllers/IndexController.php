@@ -34,6 +34,15 @@ class IndexController extends Controller
             return view('pages.index', $data);
         } else {
             Index::createRecord($request->all());
+            $data=[
+                'name' => '',
+                'email' => '',
+                'password' => '',
+                'loginpage'=>0,
+                'formSubmitted'=>$formSubmitted,
+                'success'=>1
+            ];
+            return view('pages.index', $data);
         }
     }
 
